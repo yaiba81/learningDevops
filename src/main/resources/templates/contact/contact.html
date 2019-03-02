@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+<head th:replace="common/header :: common-header" />
+<body>
+<div th:replace="common/navbar :: common-navbar"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="well">
+				<div class="text-center">
+					<h1 th:text="#{contact.h1.text}"></h1>
+					<p th:text="#{contact.p.lead}"></p>
+					<form id="contactForm"
+						  th:action="@{/contact}"
+						  th:object="${feedback}"
+						  method="post"
+						  class="text-left" >
+						  
+						<div class="form-group">
+							<label for="email" th:text="#{form.email}"></label>:
+							<input id="email" th:field="*{email}" class="form-control"
+							 th:placeholder="#{form.email.placeholder}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+							 th:title="#{form.email.title}" required/>
+						</div>
+												  
+						<div class="form-group">
+							<label for="firstName" th:text="#{form.firstName}"></label>:
+							<input id="firstName" th:field="*{firstName}" class="form-control"
+							placeholder="Enter First Name" pattern="[a-zA-Z].{2,}" required/>
+						</div>					
+											
+						<div class="form-group">
+							<label for="lastName" th:text="#{form.lastName}"></label>:
+							<input id="lastName" th:field="*{lastName}" class="form-control"
+							placeholder="Enter Last Name" pattern="[a-zA-Z].{2,}" required/>
+						</div>
+						
+						<div class="form-group">
+							<label for="Feedback" th:text="#{contact.feedback.form.text}"></label>:
+							<textarea id="Feedback" th:field="*{Feedback}" class="form-control"
+							placeholder="Enter Feedback" required></textarea>
+						</div>
+						
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary" th:text="#{form.submit}"></button>
+						</div>
+						
+					</form>
+				</div>			 
+			</div>			
+		</div>
+	</div>
+	
+</div> <!-- Container end -->
+
+<div th:replace="common/header :: before-body-scripts"></div>
+</body>
+</html>
