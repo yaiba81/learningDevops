@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+<head th:replace="common/header :: common-header" />
+<body>
+<div th:replace="common/navbar :: common-navbar"></div>
+
+<div class="container">
+
+	<div class="row">
+		
+		<div class="col-md-12">
+			
+			<div class="jumbotron">
+			
+				<div class="text-center">
+				
+				<h1 th:text="#{payload.h1.text}" />
+				<p th:text="#{payload.p.lead}" class="lead" />
+				
+				</div>			
+				
+			
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div> <!-- Container end -->
+
+<div th:replace="common/header :: before-body-scripts"></div>
+</body>
+</html>
